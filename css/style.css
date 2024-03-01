@@ -1001,6 +1001,7 @@ footer{
 }
 
 .encabezado h1{
+    color: #f34918;
     font-size: 20px;
 }
 .form{
@@ -1028,7 +1029,7 @@ footer{
 }
 
 .campo label{
-    font-weight: bold;
+    font-weight: 500;
     text-wrap: nowrap;
     margin-right: 20px;
 }
