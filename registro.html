@@ -75,25 +75,28 @@
 
     <main class="section contenedor">
         <form class="form" action="#">
-            <div class="encabezado">
-                <h1>Registro</h1>
+            <div class="form-registro">
+                <div class="encabezado">
+                    <h1>Registro</h1>
+                </div>
+    
+                <div class="campo">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" placeholder="Escribe aquí">
+                </div>
+    
+                <div class="campo">
+                    <label for="nombre">Apellido:</label>
+                    <input type="text" placeholder="Escribe aquí">
+                </div>
+    
+                <div class="campo">
+                    <label for="nombre">Correo:</label>
+                    <input type="email" placeholder="Escribe aquí">
+                </div>
+    
             </div>
-
-            <div class="campo">
-                <label for="nombre">Nombre:</label>
-                <input type="text" placeholder="Escribe aquí">
-            </div>
-
-            <div class="campo">
-                <label for="nombre">Apellido:</label>
-                <input type="text" placeholder="Escribe aquí">
-            </div>
-
-            <div class="campo">
-                <label for="nombre">Correo:</label>
-                <input type="email" placeholder="Escribe aquí">
-            </div>
-
+        
             <h2>Elige el numero de voletos</h2>
 
             <div class="paquetes">
@@ -105,7 +108,7 @@
                     <p><i class="fa-solid fa-check"></i>todas las Conferencias</p>
                     <p><i class="fa-solid fa-check"></i>todos los Talleres</p>
                     <div class="boton">
-                        <input type="number">
+                        <input class="dia" for="number" id="paseDia" type="number">
                     </div>
                 </div>
 
@@ -116,7 +119,7 @@
                     <p><i class="fa-solid fa-check"></i>todas las Conferencias</p>
                     <p><i class="fa-solid fa-check"></i>todos los Talleres</p>
                     <div class="boton">
-                        <input type="number">
+                        <input class="todosDias" for="number" id="paseTodos" type="number">
                     </div>
                 </div>
 
@@ -127,19 +130,19 @@
                     <p><i class="fa-solid fa-check"></i>todas las Conferencias</p>
                     <p><i class="fa-solid fa-check"></i>todos los Talleres</p>
                     <div class="boton">
-                        <input type="number">
+                        <input class="dosDias" for="number" id="paseDosDias" type="number">
                     </div>
                 </div>
             </div>
 
             <h2>Elige tus talleres</h2>
 
-            <div class="talleres">
+            <div class="caja">
 
                 <div class="viernes">
                     <h2>Viernes</h2>
 
-                    <div class="wrapper">
+                    <div id="viernes" class="wrapper">
                         <div class="talleres-op">
                             <p>Talleres</p>
 
@@ -234,7 +237,7 @@
                 <div class="sabado">
                     <h2>Sabado</h2>
 
-                    <div class="wrapper">
+                    <div id="sabado" class="wrapper">
                         <div class="talleres-op">
                             <p>Talleres</p>
 
@@ -329,7 +332,7 @@
                 <div class="domingo">
                     <h2>domingo</h2>
 
-                    <div class="wrapper">
+                    <div id="domingo" class="wrapper">
                         <div class="talleres-op">
                             <p>Talleres</p>
 
@@ -421,6 +424,11 @@
                     </div>
                 </div>
             </div>
+
+            <div class="caja">
+                <h3>TOTAL:</h3>
+                <P id="total">$0</P>
+            </div>
         </form>
     </main>
 
@@ -457,6 +465,7 @@
     </footer>
 
     <script src="js/script.js"></script>
+    <script src="js/registro.js"></script>
 </body>
 
 </html>

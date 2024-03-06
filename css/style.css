@@ -700,6 +700,7 @@ nav a:hover {
 }
 
 .card-precios span {
+    text-align: center;
     font-size: 30px;
     font-weight: bold;
 }
@@ -1016,6 +1017,8 @@ main.section{
 }
 
 .encabezado h1{
+    text-align: center;
+    text-transform: uppercase;
     color: #f34918;
     font-size: 20px;
 }
@@ -1038,11 +1041,18 @@ main.section{
     font-size: 16px;
 }
 
+.form-registro{
+    background-color: #fff;
+    border: 1px solid #f34918;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    padding: 0 30px;
+}
+
 .campo{
     display: flex;
     align-items: center;
     margin-bottom: 20px;
-    border: 1px solid #858281;
     border-radius: 10px;
     padding: 10px 10px;
 }
@@ -1051,10 +1061,11 @@ main.section{
     border-radius: 5px;
     width: 100%;
     height: 40px;
+    border: 1px solid #f34918;
 }
 
 .campo label{
-    font-weight: 500;
+    font-size: 16px;
     text-wrap: nowrap;
     margin-right: 20px;
 }
@@ -1072,7 +1083,7 @@ main.section{
     color: #f34918;
 }
 
-.talleres{
+.caja{
     background-color: #fff;
     padding: 20px 20px;
     width: 100%;
@@ -1080,7 +1091,7 @@ main.section{
     margin-top: 20px;
 }
 
-.talleres label{
+.caja label{
     font-size: 14px;
 }
 
@@ -1109,10 +1120,15 @@ main.section{
 }
 
 .wrapper{
-    display: flex;
+    display: none;
     flex-direction: column;
     gap: 20px;
     padding-top: 10px;
+    transition: .3s ease-in-out;
+}
+
+.wrapper.show{
+    display: flex;
 }
 
 .campo-taller{
