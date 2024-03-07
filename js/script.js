@@ -6,11 +6,11 @@ const cardTestimonial = document.querySelectorAll('.card-testimonial');
 const numero = document.querySelectorAll('.numero');
 const calendar = document.querySelectorAll('.calendario');
 const windowHeight = window.innerHeight / 5 * 4;
-
+/*
 console.log("Calendar:", calendar);
 console.log("Cards:", cards);
 console.log("Testimonial:", cardTestimonial);
-console.log("Numero:", numero);
+console.log("Numero:", numero);*/
 
 window.addEventListener('scroll', animationScroll);
 

@@ -1176,6 +1176,21 @@ main.section{
     font-size: 18px;
 }
 
+.resumen{
+    display: flex;
+    justify-content: space-between;
+}
+
+#btnCalcular{
+    width: 80px;
+    height: 35px;
+}
+
+.t-seleccionados{
+    list-style: none;
+    font-size: 14px;
+}
+
 @media (min-width: 768px) {
     .paquetes{
         flex-direction: row;
