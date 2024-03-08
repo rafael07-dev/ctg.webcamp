@@ -1,18 +1,21 @@
 (function () {
     'use strict';
 
-    const valorPaseDia = 35;
-    const valorPaseDosDias = 45;
-    const valorPaseTodosDias = 50;
+    const VALOR_PASE_DIA = 30;
+    const VALOR_PASE_DOS_DIAS = 45;
+    const VALOR_PASE_TODOS = 50;
+
+
     var wapperTallerTodos = document.querySelectorAll('.wrapper');
     var btnCalcular = document.getElementById('btnCalcular');
-    const talleres = document.querySelector('.t-seleccionados');
+    var talleres = document.querySelector('.t-seleccionados');
+
+    //cards de precios
+    var paseDia = document.getElementById('paseDia');
+    var paseDosDias = document.getElementById('paseDosDias');
+    var paseTodos = document.getElementById('paseTodos');
 
     document.addEventListener("DOMContentLoaded", function () {
-
-        var paseDia = document.getElementById('paseDia');
-        var paseDosDias = document.getElementById('paseDosDias');
-        var paseTodos = document.getElementById('paseTodos');
 
         btnCalcular.addEventListener('click', validateInputChecked);
         getValueInputs(paseDia);
@@ -48,9 +51,30 @@
             }
         });
 
+        calculatePrice();
+
     }
 
     function calculatePrice() {
+        const total = document.getElementById('total');
+        let totalPrice = 0;
+
+        if (paseDia.value > 0) {
+            totalPrice += paseDia.value * VALOR_PASE_DIA;
+        }
+        if (paseDosDias.value > 0) {
+            totalPrice += paseDosDias.value * VALOR_PASE_DOS_DIAS;
+        }
+
+        if (paseTodos.value > 0) {
+            totalPrice += paseTodos.value * VALOR_PASE_TODOS;
+        }
+
+        total.innerText = "$"+ totalPrice;
+
+    }
+
+    function update() {
         
     }
 
