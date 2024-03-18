@@ -26,7 +26,7 @@
         //agregar evento click a todos los checkbox
 
         //boton general para calcular precio
-        //btnCalcular.addEventListener('click', validateInputChecked);
+        btnCalcular.addEventListener('click', validateInputCheckedTotal);
 
         //obtener valores de los inputs de las cards talleres
         handleInput(paseDia);
@@ -147,7 +147,7 @@
     }
 
     function updateInputsTowDays() {
-        
+
         let isTrue = 0;
 
         var check = {
