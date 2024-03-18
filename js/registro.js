@@ -24,12 +24,9 @@
     document.addEventListener("DOMContentLoaded", function () {
 
         //agregar evento click a todos los checkbox
-        checkboxesViernes.forEach(item => item.addEventListener('click', updateInputs));
-        checkboxesSabado.forEach(item => item.addEventListener('click', updateInputs));
-        checkboxesDomingo.forEach(item => item.addEventListener('click', updateInputs));
 
         //boton general para calcular precio
-        btnCalcular.addEventListener('click', validateInputChecked);
+        //btnCalcular.addEventListener('click', validateInputChecked);
 
         //obtener valores de los inputs de las cards talleres
         handleInput(paseDia);
@@ -50,6 +47,27 @@
         if (element.id === 'paseDia') {
             paseDosDias.setAttribute('disabled', 'true');
             paseTodos.setAttribute('disabled', 'true');
+            checkboxesViernes.forEach(item => item.addEventListener('click', updateInputs));
+            checkboxesSabado.forEach(item => item.addEventListener('click', updateInputs));
+            checkboxesDomingo.forEach(item => item.addEventListener('click', updateInputs));
+        }
+
+        if (element.id === 'paseDosDias') {
+            paseDia.setAttribute('disabled', 'true');
+            paseTodos.setAttribute('disabled', 'true');
+
+            checkboxesViernes.forEach(item => item.addEventListener('click', updateInputsTowDays));
+            checkboxesSabado.forEach(item => item.addEventListener('click', updateInputsTowDays));
+            checkboxesDomingo.forEach(item => item.addEventListener('click', updateInputsTowDays));
+        }
+
+        if (element.id === 'paseTodos') {
+            paseDosDias.setAttribute('disabled', 'true');
+            paseDia.setAttribute('disabled', 'true');
+
+            checkboxesViernes.forEach(item => item.addEventListener('click', updateInputsAllDays));
+            checkboxesSabado.forEach(item => item.addEventListener('click', updateInputsAllDays));
+            checkboxesDomingo.forEach(item => item.addEventListener('click', updateInputsAllDays));
         }
     }
 
@@ -61,7 +79,7 @@
         });
     }
 
-    function validateInputChecked() {
+    function validateInputCheckedTotal() {
 
         checkboxesViernes.forEach(item => {
 
@@ -111,6 +129,71 @@
             disableCheckBox(checkboxesViernes);
             disableCheckBox(checkboxesSabado);
         }
+    }
+
+    function validateInputChecked(element) {
+
+        let isCHecked = false;
+
+        element.forEach(item => {
+
+            if (item.checked) {
+                isCHecked = true;
+                return isCHecked;
+            }
+        });
+
+        return isCHecked;
+    }
+
+    function updateInputsTowDays() {
+
+        let viernes = validateInputChecked(checkboxesViernes);
+        let sabado = validateInputChecked(checkboxesSabado);
+        let domingo = validateInputChecked(checkboxesDomingo);
+
+        let isTrue = 0;
+
+        var check = {
+            viernes: viernes,
+            sabado: sabado,
+            domingo: domingo
+        };
+        var dayOfWeekend = {
+            1: 'viernes',
+            2: 'sabado',
+            3: 'domingo'
+        }
+
+        const isChecked = Object.values(check);
+        let dia = undefined;
+
+        for (let index = 0; index < isChecked.length; index++) {
+            if (isChecked[index] == true) {
+                isTrue ++;
+            }else{
+                dia = index + 1;
+            }
+
+            if (isTrue == 2) {
+                if (dayOfWeekend[dia] == 'viernes') {
+                    disableCheckBox(checkboxesViernes)
+                }
+    
+                if (dayOfWeekend[dia] == 'sabado') {
+                    disableCheckBox(checkboxesSabado)
+                }
+    
+                if (dayOfWeekend[dia] == 'domingo') {
+                    disableCheckBox(checkboxesDomingo)
+                }
+            }
+        }
+
+    }
+
+    function updateInputsAllDays() {
+        
     }
 
     function disableCheckBox(element) {
