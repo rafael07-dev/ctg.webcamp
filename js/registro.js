@@ -147,17 +147,13 @@
     }
 
     function updateInputsTowDays() {
-
-        let viernes = validateInputChecked(checkboxesViernes);
-        let sabado = validateInputChecked(checkboxesSabado);
-        let domingo = validateInputChecked(checkboxesDomingo);
-
+        
         let isTrue = 0;
 
         var check = {
-            viernes: viernes,
-            sabado: sabado,
-            domingo: domingo
+            viernes: validateInputChecked(checkboxesViernes),
+            sabado: validateInputChecked(checkboxesSabado),
+            domingo: validateInputChecked(checkboxesDomingo)
         };
         var dayOfWeekend = {
             1: 'viernes',
@@ -166,6 +162,7 @@
         }
 
         const isChecked = Object.values(check);
+
         let dia = undefined;
 
         for (let index = 0; index < isChecked.length; index++) {
