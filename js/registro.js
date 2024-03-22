@@ -143,9 +143,9 @@
             .filter(([day, checkboxs]) => validateInputChecked(checkboxs))
             .map(([day, checkboxs]) => day);
 
-        for (let i = 0; i < DAYS.length; i++) {
-            if (!checkboxDays.includes(DAYS[i])) {
-                disableCheckBox(checkboxs[DAYS[i]])
+        for (const day of DAYS) {
+            if (!checkboxDays.includes(day)) {
+                disableCheckBox(checkboxs[day])
             }
         }           
     }
