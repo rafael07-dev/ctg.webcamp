@@ -137,8 +137,6 @@
             domingo: checkboxesDomingo
         }
 
-        const DAYS = ['viernes', 'sabado', 'domingo'];
-
         const checkboxDays = Object.entries(checkboxes)
             .filter(([day, checkboxs]) => validateInputChecked(checkboxs))
             .map(([day, checkboxs]) => day);
