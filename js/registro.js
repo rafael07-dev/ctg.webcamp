@@ -137,10 +137,12 @@
             domingo: checkboxesDomingo
         }
 
+        // obtenemos el dia marcado por los checkboxs
         const checkboxDays = Object.entries(checkboxes)
             .filter(([day, checkboxs]) => validateInputChecked(checkboxs))
             .map(([day, checkboxs]) => day);
 
+        //verificamos cuales dias no fueron marcados para desabilitarlos
         for (const [day, checkbox] of Object.entries(checkboxes)) {
             if (!checkboxDays.includes(day)) {
                 disableCheckBox(checkbox)
