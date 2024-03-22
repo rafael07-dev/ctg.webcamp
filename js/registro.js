@@ -131,7 +131,7 @@
 
     function updateInputsDay() {
 
-        const checkboxs = {
+        const checkboxes = {
             viernes: checkboxesViernes,
             sabado: checkboxesSabado,
             domingo: checkboxesDomingo
@@ -139,13 +139,13 @@
 
         const DAYS = ['viernes', 'sabado', 'domingo'];
 
-        const checkboxDays = Object.entries(checkboxs)
+        const checkboxDays = Object.entries(checkboxes)
             .filter(([day, checkboxs]) => validateInputChecked(checkboxs))
             .map(([day, checkboxs]) => day);
 
-        for (const day of DAYS) {
+        for (const [day, checkbox] of Object.entries(checkboxes)) {
             if (!checkboxDays.includes(day)) {
-                disableCheckBox(checkboxs[day])
+                disableCheckBox(checkbox)
             }
         }           
     }
