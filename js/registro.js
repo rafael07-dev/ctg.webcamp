@@ -47,9 +47,9 @@
         if (element.id === 'paseDia') {
             paseDosDias.setAttribute('disabled', 'true');
             paseTodos.setAttribute('disabled', 'true');
-            checkboxesViernes.forEach(item => item.addEventListener('click', updateInputs));
-            checkboxesSabado.forEach(item => item.addEventListener('click', updateInputs));
-            checkboxesDomingo.forEach(item => item.addEventListener('click', updateInputs));
+            checkboxesViernes.forEach(item => item.addEventListener('click', updateInputsDay));
+            checkboxesSabado.forEach(item => item.addEventListener('click', updateInputsDay));
+            checkboxesDomingo.forEach(item => item.addEventListener('click', updateInputsDay));
         }
 
         if (element.id === 'paseDosDias') {
@@ -114,23 +114,6 @@
         total.innerText = "$" + totalPrice;
     }
 
-    function updateInputs(e) {
-        if (e.target.id <= 15) {
-            disableCheckBox(checkboxesSabado);
-            disableCheckBox(checkboxesDomingo);
-        }
-
-        if (e.target.id > 15 && e.target.id <= 30) {
-            disableCheckBox(checkboxesViernes);
-            disableCheckBox(checkboxesDomingo);
-        }
-
-        if (e.target.id > 30) {
-            disableCheckBox(checkboxesViernes);
-            disableCheckBox(checkboxesSabado);
-        }
-    }
-
     function validateInputChecked(element) {
 
         let isCHecked = false;
@@ -144,6 +127,27 @@
         });
 
         return isCHecked;
+    }
+
+    function updateInputsDay() {
+
+        const checkboxs = {
+            viernes: checkboxesViernes,
+            sabado: checkboxesSabado,
+            domingo: checkboxesDomingo
+        }
+
+        const DAYS = ['viernes', 'sabado', 'domingo'];
+
+        const checkboxDays = Object.entries(checkboxs)
+            .filter(([day, checkboxs]) => validateInputChecked(checkboxs))
+            .map(([day, checkboxs]) => day);
+
+        for (let i = 0; i < DAYS.length; i++) {
+            if (!checkboxDays.includes(DAYS[i])) {
+                disableCheckBox(checkboxs[DAYS[i]])
+            }
+        }           
     }
 
     function updateInputsTowDays() {
@@ -184,6 +188,8 @@
                 if (dayOfWeekend[dia] == 'domingo') {
                     disableCheckBox(checkboxesDomingo)
                 }
+            }else{
+
             }
         }
 
