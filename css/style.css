@@ -1178,6 +1178,7 @@ main.section{
 
 .resumen{
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
 }
 

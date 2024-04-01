@@ -34,8 +34,21 @@
         handleInput(paseTodos);
     });
 
-    function handleInput(element) {
+    function getContactInfo() {
+        const name = document.getElementById('inputName').value;
+        const apellido = document.getElementById('inputApellido').value;
+        const email = document.getElementById('inputEmail').value;
 
+        const spanName = document.getElementById('nombre');
+        const spanApellido = document.getElementById('apellido');
+        const spanEmail = document.getElementById('email');
+
+        spanName.innerHTML = name;
+        spanApellido.innerHTML = apellido;
+        spanEmail.innerHTML = email;
+    }
+
+    function handleInput(element) {
         element.addEventListener('input', () => {
             //mostrar todos los talleres
             showTalleres(wapperTallerTodos)
@@ -80,6 +93,8 @@
     }
 
     function validateInputCheckedTotal() {
+
+        getContactInfo();
 
         checkboxesViernes.forEach(item => {
 
