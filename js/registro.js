@@ -8,7 +8,7 @@
 
     var wapperTallerTodos = document.querySelectorAll('.wrapper');
     var btnCalcular = document.getElementById('btnCalcular');
-    var talleres = document.querySelector('.t-seleccionados');
+    var talleres_select = document.querySelector('.t-seleccionados');
 
     //input cards de precios
     var paseDia = document.getElementById('paseDia');
@@ -93,6 +93,7 @@
     }
 
     function validateInputCheckedTotal() {
+        const talleres = [];
 
         getContactInfo();
 
@@ -100,13 +101,39 @@
 
             if (item.checked) {
                 const label = document.querySelector('label[for="' + item.id + '"]');
-                const li = document.createElement('li');
-
-                li.innerText = label.textContent;
-
-                talleres.appendChild(li);
+                talleres.push(label.textContent);
             }
         });
+
+        checkboxesSabado.forEach(item => {
+
+            if (item.checked) {
+                const label = document.querySelector('label[for="' + item.id + '"]');
+                talleres.push(label.textContent);
+            }
+        });
+
+        checkboxesDomingo.forEach(item => {
+
+            if (item.checked) {
+                const label = document.querySelector('label[for="' + item.id + '"]');
+                talleres.push(label.textContent);
+            }
+        });
+
+        var liElements = talleres_select.querySelectorAll('li');
+
+        for (const key in talleres) {
+            const li = document.createElement('li');
+
+            li.innerText = talleres[key];
+
+            var isPresent = Array.from(liElements).some(i => i.textContent === li.innerText);
+
+            if (!isPresent) {
+                talleres_select.appendChild(li);
+            }
+        }
 
         calculatePrice();
     }
