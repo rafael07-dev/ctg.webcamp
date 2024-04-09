@@ -8,7 +8,7 @@
 
     var wapperTallerTodos = document.querySelectorAll('.wrapper');
     var btnCalcular = document.getElementById('btnCalcular');
-    var talleres_select = document.querySelector('.t-seleccionados');
+    var talleres_selected = document.querySelector('.t-seleccionados');
 
     //input cards de precios
     var paseDia = document.getElementById('paseDia');
@@ -93,49 +93,75 @@
     }
 
     function validateInputCheckedTotal() {
-        const talleres = [];
+        const checkboxDays = {
+            viernes: checkboxesViernes,
+            sabado: checkboxesSabado,
+            domingo: checkboxesDomingo
+        }
 
-        getContactInfo();
+        const talleres_selected = []
+        //getContactInfo();
+
+        /*function getLabelText(checkbox) {
+            checkbox.forEach(item => {
+
+                if (item.checked) {
+                    const label = document.querySelector('label[for="' + item.id + '"]').textContent;
+                    talleres.push(label);
+                }
+            });
+        }
+
+
+        const isChecked = Object.entries(checkboxDays)
+            .filter(([day, checkbox]) => getLabelText(checkbox))
+            .map(([day, checkbox]) => day);
+
+        console.log(isChecked);*/
 
         checkboxesViernes.forEach(item => {
 
             if (item.checked) {
-                const label = document.querySelector('label[for="' + item.id + '"]');
-                talleres.push(label.textContent);
+                const label = document.querySelector('label[for="' + item.id + '"]').textContent;
+                talleres_selected.push(label);
             }
         });
 
         checkboxesSabado.forEach(item => {
 
             if (item.checked) {
-                const label = document.querySelector('label[for="' + item.id + '"]');
-                talleres.push(label.textContent);
+                const label = document.querySelector('label[for="' + item.id + '"]').textContent;
+                talleres_selected.push(label);
             }
         });
 
         checkboxesDomingo.forEach(item => {
 
             if (item.checked) {
-                const label = document.querySelector('label[for="' + item.id + '"]');
-                talleres.push(label.textContent);
+                const label = document.querySelector('label[for="' + item.id + '"]').textContent;
+                talleres_selected.push(label);
             }
         });
 
-        var liElements = talleres_select.querySelectorAll('li');
-
-        for (const key in talleres) {
-            const li = document.createElement('li');
-
-            li.innerText = talleres[key];
-
-            var isPresent = Array.from(liElements).some(i => i.textContent === li.innerText);
-
-            if (!isPresent) {
-                talleres_select.appendChild(li);
-            }
-        }
+        setTalleres(talleres_selected);
 
         calculatePrice();
+    }
+
+    function setTalleres(t) {
+        var liElements = talleres_selected.querySelectorAll('li');
+
+        for (const key in t) {
+            const li = document.createElement('li');
+
+            li.innerText = t[key];
+
+            var liIsPresent = Array.from(liElements).some(i => i.textContent === li.innerText);
+
+            if (!liIsPresent) {
+                talleres_selected.appendChild(li);
+            }
+        }
     }
 
     function calculatePrice() {
