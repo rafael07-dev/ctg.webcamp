@@ -1,4 +1,4 @@
-const menuBar = document.querySelector('.menu-bar a');
+const menuBar = document.querySelector('.menu-bar button');
 const dropdownMenu = document.querySelector('.dropdown-menu');
 const btnClose = document.querySelector('.btn-close');
 const cards = document.querySelectorAll('.card-precios');
