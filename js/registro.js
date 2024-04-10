@@ -93,31 +93,8 @@
     }
 
     function validateInputCheckedTotal() {
-        const checkboxDays = {
-            viernes: checkboxesViernes,
-            sabado: checkboxesSabado,
-            domingo: checkboxesDomingo
-        }
 
         const talleres_selected = []
-        //getContactInfo();
-
-        /*function getLabelText(checkbox) {
-            checkbox.forEach(item => {
-
-                if (item.checked) {
-                    const label = document.querySelector('label[for="' + item.id + '"]').textContent;
-                    talleres.push(label);
-                }
-            });
-        }
-
-
-        const isChecked = Object.entries(checkboxDays)
-            .filter(([day, checkbox]) => getLabelText(checkbox))
-            .map(([day, checkbox]) => day);
-
-        console.log(isChecked);*/
 
         checkboxesViernes.forEach(item => {
 
@@ -146,6 +123,7 @@
         setTalleres(talleres_selected);
 
         calculatePrice();
+        getContactInfo();
     }
 
     function setTalleres(t) {
