@@ -10,68 +10,8 @@
 </head>
 
 <body>
-    <header class="site-header">
-        <div class="hero">
-            <div class="contenido-hero">
-                <nav class="redes-sociales contenedor-redes">
-                    <ul>
-                        <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-                        <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
-                        <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa-brands fa-pinterest"></i></a></li>
-                    </ul>
-                </nav>
-
-                <div class="informacion-evento">
-
-                    <div class="iconos">
-                        <p class="fecha"><i class="fa-solid fa-calendar-days"></i>01-2-2024</p>
-                        <p class="ciudad"><i class="fa-solid fa-location-dot"></i></i>Cartagena, Colombia</p>
-                    </div>
-
-                    <h1>Ctg.WebCamp</h1>
-                    <p class="slogan">la mejor conferencia de <span>desarrollo web</span></p>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <div class="barra">
-        <div class="contenedor-barra">
-            <div class="logo">
-                <img src="img/logo.svg" alt="logo ctgwebcamp">
-            </div>
-            <nav class="barra-navegacion">
-                <ul>
-                    <li><a href="#">conferencia</a></li>
-                    <li><a href="#">calendario</a></li>
-                    <li><a href="#">invitados</a></li>
-                    <li><a href="registro.html">reservaciones</a></li>
-                </ul>
-            </nav>
-
-            <div class="menu-bar">
-                <a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
-                        <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
-                    </svg></a>
-            </div>
-        </div>
-    </div>
-
-    <div class="dropdown-menu">
-        <ul>
-            <li><a class="btn-close" href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24"
-                        viewBox="0 -960 960 960" width="24">
-                        <path
-                            d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
-                    </svg></a></li>
-            <li><a href="#">conferencia</a></li>
-            <li><a href="#">calendario</a></li>
-            <li><a href="#">invitados</a></li>
-            <li><a href="#">reservaciones</a></li>
-        </ul>
-    </div>
+    
+    <?php include 'includes/header.php';?>
 
     <section class="contenido-principal contenedor">
         <h1>la mejor conferencia de diseño web en español</h1>
@@ -312,39 +252,7 @@
         </div>
     </div>
 
-    <footer>
-        <div class="wrapper-footer contenedor">
-            <div class="acerca-de">
-                <h1>Sobre <span>ctg.webcamp</span></h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut dignissimos suscipit recusandae. Tenetur
-                    sunt ipsam modi omnis quisquam sapiente, harum voluptatum eveniet reprehenderit sed soluta aperiam
-                    perferendis quis illo praesentium!</p>
-            </div>
-
-            <div class="tweets">
-                <h1>Ultimos <span>tweets</span></h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut dignissimos suscipit recusandae. Tenetur
-                    sunt ipsam modi omnis quisquam sapiente, harum voluptatum eveniet reprehenderit sed soluta aperiam
-                    perferendis quis illo praesentium!</p>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore reiciendis mollitia, in sequi est
-                    sit culpa quasi consequuntur qui dolorem modi assumenda, earum quam quisquam rem quo. Dolorum, nihil
-                    fugit!</p>
-            </div>
-
-            <div class="redes-sociales">
-                <h1>Redes <span>sociales</span></h1>
-                <ul>
-                    <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
-                    <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-                    <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
-                    <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fa-brands fa-pinterest"></i></a></li>
-                </ul>
-            </div>
-        </div>
-    </footer>
-
-    <script src="js/script.js"></script>
+    <?php include 'includes/footer.php'; ?>
 </body>
 
 </html>
