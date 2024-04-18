@@ -47,7 +47,7 @@
                     <li><a href="#">conferencia</a></li>
                     <li><a href="#">calendario</a></li>
                     <li><a href="#">invitados</a></li>
-                    <li><a href="registro.html">reservaciones</a></li>
+                    <li><a href="registro.php">reservaciones</a></li>
                 </ul>
             </nav>
 
