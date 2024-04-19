@@ -11,7 +11,7 @@
 
 <body>
     
-    <?php include 'includes/header.php';?>
+    <?php include 'includes/templates/header.php';?>
 
     <section class="contenido-principal contenedor">
         <h1>la mejor conferencia de diseño web en español</h1>
@@ -252,7 +252,7 @@
         </div>
     </div>
 
-    <?php include 'includes/footer.php'; ?>
+    <?php include 'includes/templates/footer.php'; ?>
 </body>
 
 </html>
