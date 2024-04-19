@@ -45,7 +45,7 @@
             <nav class="barra-navegacion">
                 <ul>
                     <li><a href="#">conferencia</a></li>
-                    <li><a href="#">calendario</a></li>
+                    <li><a href="calendario.php">calendario</a></li>
                     <li><a href="#">invitados</a></li>
                     <li><a href="registro.php">reservaciones</a></li>
                 </ul>
@@ -67,9 +67,9 @@
                             d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
                     </svg></a></li>
             <li><a href="#">conferencia</a></li>
-            <li><a href="#">calendario</a></li>
-            <li><a href="#">invitados</a></li>
-            <li><a href="#">reservaciones</a></li>
+            <li><a href="calendario.php">calendario</a></li>
+            <li><a href="invitados.php">invitados</a></li>
+            <li><a href="registro.php">reservaciones</a></li>
         </ul>
     </div>
 
