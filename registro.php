@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <?php include 'includes/header.php';?>
+    <?php include 'includes/templates/header.php';?>
 
     <main class="section contenedor">
         <form class="form" action="#">
@@ -393,7 +393,7 @@
         </form>
     </main>
 
-    <?php include 'includes/footer.php'?>
+    <?php include 'includes/templates/footer.php'?>
 
     <script src="js/script.js"></script>
     <script src="js/registro.js"></script>
