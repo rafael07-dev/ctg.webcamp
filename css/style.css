@@ -803,7 +803,7 @@ nav a:hover {
 
 /*registro*/
 
-.registro{
+main.registro{
     height: 300px;
     background-image: url(/img/bg-inscribir.jpg);
     background-position: center;
@@ -1006,6 +1006,9 @@ main.section{
 
 .section .form .paquetes .card-precios{
     transform: none;
+}
+main.section h2{
+    text-align: center;
 }
 .section .card-precios:hover{
     transform: none;
