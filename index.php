@@ -12,6 +12,7 @@
 <body>
     
     <?php include 'includes/templates/header.php';?>
+    <?php include 'includes/templates/barra.php';?>
 
     <section class="contenido-principal contenedor">
         <h1>la mejor conferencia de diseño web en español</h1>

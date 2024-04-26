@@ -12,6 +12,7 @@
 
 <body>
     <?php include 'includes/templates/header.php';?>
+    <?php include 'includes/templates/barra.php';?>
 
     <main class="section contenedor">
         <h2>CALENDARIO EVENTOS</h2>

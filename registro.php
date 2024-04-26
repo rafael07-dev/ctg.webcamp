@@ -11,6 +11,7 @@
 
 <body>
     <?php include 'includes/templates/header.php';?>
+    <?php include 'includes/templates/barra.php';?>
 
     <main class="section contenedor">
         <form class="form" action="#">
