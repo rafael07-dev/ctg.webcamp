@@ -62,7 +62,7 @@
                         <?php 
                             foreach ($list_eventos as $evento) { ?>
                                 <div class="dia">
-                                    <p class="titulo"><i class="<?php echo $evento['icono'] ?>"></i> <?php echo $evento['titulo'] ?> </p>
+                                    <p class="titulo"><i class="<?php echo $evento['icono'] ?> icon-color"></i> <?php echo $evento['titulo'] ?> </p>
                                     <p class="fecha"> <i class="fa-regular fa-clock"></i> <?php echo $evento['fecha'] . " " . $evento['hora'] ?> </p>
                                     <p class="categoria"> <i class="<?php echo $evento['icono'] ?>"></i> <?php echo $evento['categoria'] ?> </p>
                                     <p class="invitado-bd"><i class="fa fa-user"></i> <?php echo $evento['invitado'] ?> </p>
