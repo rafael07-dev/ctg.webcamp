@@ -57,15 +57,15 @@
 
                 <?php 
                     foreach ($calendario as $dia => $list_eventos) { ?>
-                        <h3><i class="fa fa-calendar"><?php setlocale(LC_TIME, 'spanish'); echo strftime("%A, %d de  %B del %Y", strtotime($dia))  ?></i></h3>
+                        <h3><i class="fa fa-calendar icon-color"><?php setlocale(LC_TIME, 'spanish'); echo strftime("%A, %d de  %B del %Y", strtotime($dia))  ?></i></h3>
                         <div class="wapper-eventos">
                         <?php 
                             foreach ($list_eventos as $evento) { ?>
                                 <div class="dia">
                                     <p class="titulo"><i class="<?php echo $evento['icono'] ?> icon-color"></i> <?php echo $evento['titulo'] ?> </p>
-                                    <p class="fecha"> <i class="fa-regular fa-clock"></i> <?php echo $evento['fecha'] . " " . $evento['hora'] ?> </p>
-                                    <p class="categoria"> <i class="<?php echo $evento['icono'] ?>"></i> <?php echo $evento['categoria'] ?> </p>
-                                    <p class="invitado-bd"><i class="fa fa-user"></i> <?php echo $evento['invitado'] ?> </p>
+                                    <p class="fecha"> <i class="fa-regular fa-clock icon-color"></i> <?php echo $evento['fecha'] . " " . $evento['hora'] ?> </p>
+                                    <p class="categoria"> <i class="<?php echo $evento['icono'] ?> icon-color"></i> <?php echo $evento['categoria'] ?> </p>
+                                    <p class="invitado-bd"><i class="fa fa-user icon-color"></i> <?php echo $evento['invitado'] ?> </p>
                                 </div>
                         <?php } ?>
                         </div>
