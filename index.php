@@ -16,9 +16,6 @@
 
     <section class="contenido-principal contenedor">
         <h1>la mejor conferencia de diseño web en español</h1>
-        <div class="contenido-img">
-            <img src="img/separador.png" alt="separador">
-        </div>
 
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime error, nostrum aut impedit harum voluptas
             eligendi eius quidem corporis suscipit neque adipisci soluta, velit ipsum, accusamus nesciunt minus
@@ -65,9 +62,7 @@
 
     <section class="invitados contenedor">
         <h1>Nuestros invitados</h1>
-        <div class="contenido-img">
-            <img src="img/separador.png" alt="separador">
-        </div>
+       
 
         <div class="contenedor-invitados">
             <ul>
@@ -125,9 +120,7 @@
 
     <section class="precios">
         <h2>Precios</h2>
-        <div class="contenido-img">
-            <img src="img/separador.png" alt="separador">
-        </div>
+        
         <div class="contenedor-precios contenedor">
 
             <div class="card-precios">
@@ -167,9 +160,7 @@
 
     <section class="testimoniales contenedor">
         <h2>testimoniales</h2>
-        <div class="contenido-img">
-            <img src="img/separador.png" alt="separador">
-        </div>
+        
         <div class="contenedor-testimoniales">
             <div class="card-testimonial">
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates obcaecati nostrum neque, ad
@@ -232,9 +223,6 @@
     <div class="dias-faltantes">
 
         <h2>faltan</h2>
-        <div class="contenido-img">
-            <img src="img/separador.png" alt="separador">
-        </div>
         <div class="wrapper-dias">
             <ul>
                 <li>
