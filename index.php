@@ -62,39 +62,49 @@
 
     <section class="invitados contenedor">
         <h1>Nuestros invitados</h1>
-       
+
+        <?php 
+            try {
+                //code...
+                require_once('includes/funciones/db_conexion.php');
+
+                $query = "SELECT invitado_id, nombre_invitado, apellido_invitado, descripcion, url_imagen FROM invitados ORDER BY nombre_invitado";
+
+                $result = $conn->query($query);
+
+            } catch (\Exception $e) {
+                //throw $th;
+                echo $e->getMessage();
+            }
+        ?>
+        <?php
+                    $invitados_db = array();
+
+                    while ($invitados = $result->fetch_assoc()) {
+                        # code...
+                        $invitado = array(
+                            'id' => $invitados['invitado_id'],
+                            'nombre' => $invitados['nombre_invitado'],
+                            'apellido' => $invitados['apellido_invitado'],
+                            'descripcion' => $invitados['descripcion'],
+                            'imagen' => $invitados['url_imagen']
+                        );
+
+                        //ordenar por fechas los eventos
+                        $invitados_db[] = $invitado;
+
+                    }
+                ?>
 
         <div class="contenedor-invitados">
             <ul>
-                <li class="invitado">
-                    <img src="img/invitado1.jpg" alt="img invitado">
-                    <p class="texto-invitado">Cristian Ramirez</p>
-                </li>
-
-                <li class="invitado">
-                    <img src="img/invitado2.jpg" alt="img invitado">
-                    <p class="texto-invitado">Isabel Perez</p>
-                </li>
-
-                <li class="invitado">
-                    <img src="img/invitado3.jpg" alt="img invitado">
-                    <p class="texto-invitado">Juan Gutierrez</p>
-                </li>
-
-                <li class="invitado">
-                    <img src="img/invitado4.jpg" alt="img invitado">
-                    <p class="texto-invitado">Ivanna Suarez</p>
-                </li>
-
-                <li class="invitado">
-                    <img src="img/invitado5.jpg" alt="img invitado">
-                    <p class="texto-invitado">Orlando Palacios</p>
-                </li>
-
-                <li class="invitado">
-                    <img src="img/invitado6.jpg" alt="img invitado">
-                    <p class="texto-invitado">Ana Cortez</p>
-                </li>
+            <?php 
+                foreach ($invitados_db as $key => $invitado) { ?>
+                    <li class="invitado">
+                        <img src="img/<?php echo $invitado['imagen'] ?>" alt="<?php echo $invitado['nombre'] ?>">
+                        <p class="texto-invitado"><?php echo $invitado['nombre'] . " " . $invitado['apellido'] ?></p>
+                    </li>
+            <?php } ?>
             </ul>
         </div>
     </section>
