@@ -68,7 +68,7 @@
                 //code...
                 require_once('includes/funciones/db_conexion.php');
 
-                $query = "SELECT invitado_id, nombre_invitado, apellido_invitado, descripcion, url_imagen FROM invitados ORDER BY nombre_invitado";
+                $query = "SELECT nombre_invitado, apellido_invitado, url_imagen FROM invitados ORDER BY nombre_invitado";
 
                 $result = $conn->query($query);
 
@@ -78,23 +78,19 @@
             }
         ?>
         <?php
-                    $invitados_db = array();
+            $invitados_db = array();
 
-                    while ($invitados = $result->fetch_assoc()) {
-                        # code...
-                        $invitado = array(
-                            'id' => $invitados['invitado_id'],
-                            'nombre' => $invitados['nombre_invitado'],
-                            'apellido' => $invitados['apellido_invitado'],
-                            'descripcion' => $invitados['descripcion'],
-                            'imagen' => $invitados['url_imagen']
-                        );
+            while ($invitados = $result->fetch_assoc()) {
+                # code...
+                $invitado = array(
+                    'nombre' => $invitados['nombre_invitado'],
+                    'apellido' => $invitados['apellido_invitado'],
+                    'imagen' => $invitados['url_imagen']
+                );
 
-                        //ordenar por fechas los eventos
-                        $invitados_db[] = $invitado;
-
-                    }
-                ?>
+                $invitados_db[] = $invitado;
+            }
+        ?>
 
         <div class="contenedor-invitados">
             <ul>
