@@ -1,7 +1,8 @@
 <div class="barra">
     <div class="contenedor-barra">
         <div class="logo">
-            <img src="img/logo.svg" alt="logo ctgwebcamp">
+            <a href="index.php"><img  src="img/logo.svg" alt="logo ctgwebcamp"></a>
+            
         </div>
         <nav class="barra-navegacion">
             <ul>
