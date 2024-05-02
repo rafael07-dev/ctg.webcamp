@@ -436,6 +436,19 @@ nav a:hover {
     font-size: 14px;
     text-align: center;
     text-transform: uppercase;
+    position: relative;
+}
+
+.calendario h1::after {
+    content: '';
+    background-image: url('../img/separador.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 90%;
+    left: 45%;
+    width: 44px;
+    height: 20px;
 }
 
 /*
@@ -688,7 +701,7 @@ nav a:hover {
     background-repeat: no-repeat;
     position: absolute;
     top: 90%;
-    left: 47%;
+    left: 48%;
     width: 44px;
     height: 20px;
 }
@@ -697,7 +710,7 @@ nav a:hover {
     display: grid;
     justify-content: center;
     gap: 20px;
-    padding: 20px 20px;
+    padding: 40px 20px;
     overflow-x: hidden;
 }
 
