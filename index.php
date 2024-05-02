@@ -23,16 +23,44 @@
     </section>
 
     <section class="contenido-talleres">
+
+        <?php
+            try {
+                //code...
+                require_once('includes/funciones/db_conexion.php');
+
+                $query = "SELECT evento_id, nombre_evento, fecha_evento, hora_evento, cat_evento, icono, nombre_invitado, apellido_invitado FROM eventos INNER JOIN categoria_evento ON eventos.id_cat_evento = categoria_evento.id_categoria INNER JOIN invitados ON eventos.id_invitado = invitados.invitado_id LIMIT 3";
+
+                $result = $conn->query($query);
+
+            } catch (\Exception $e) {
+                //throw $th;
+                echo $e->getMessage();
+            }
+        ?>
+
+        <?php
+            $calendario = array();
+
+            while ($eventos = $result->fetch_assoc()) {
+                        
+                $evento = array(
+                    'titulo' => $eventos['nombre_evento'],
+                    'fecha' => $eventos['fecha_evento'],
+                    'hora' => $eventos['hora_evento'],
+                    'categoria' => $eventos['cat_evento'],
+                    'icono' => $eventos['icono'],
+                    'invitado' => $eventos['nombre_invitado'] . ' ' . $eventos['apellido_invitado']
+                );
+
+                $calendario[] = $evento;
+            }
+        ?>
         <div class="bg-contenido-principal">
             <img src="img/bg-talleres.jpg" alt="imgagen Talleres">
         </div>
         <div class="calendario contenedor">
             <h1>programa del evento</h1>
-
-            <div class="contenido-img">
-                <img src="img/separador.png" alt="separador">
-            </div>
-
 
             <div class="opciones-calendario">
                 <p><i class="fa-solid fa-code"></i>Talleres</p>
@@ -40,7 +68,15 @@
                 <p><i class="fa-solid fa-building-columns"></i>Seminarios</p>
             </div>
             <hr>
-            <div class="evento">
+            <?php foreach ($calendario as $evento) { ?>
+                    <div class="evento">
+                        <h2><i class="<?php echo $evento['icono']?>"></i><?php echo$evento['titulo']?></h2>
+                        <p><i class="fa-regular fa-clock"></i><?php echo $evento['hora'] ?></p>
+                        <p><i class="fa-solid fa-calendar-days"></i><?php echo $evento['fecha'] ?></p>
+                        <p><i class="fa-solid fa-user"></i><?php echo $evento['invitado'] ?></p>
+                    </div>
+            <?php } ?>
+            <!--<div class="evento">
                 <h2>HTML, CSS, JavaScript</h2>
                 <p><i class="fa-regular fa-clock"></i>14:00hr</p>
                 <p><i class="fa-solid fa-calendar-days"></i>10 de Dic</p>
@@ -53,7 +89,7 @@
                 <p><i class="fa-regular fa-clock"></i>14:00hr</p>
                 <p><i class="fa-solid fa-calendar-days"></i>10 de Dic</p>
                 <p><i class="fa-solid fa-user"></i>Deiner Rafael</p>
-            </div>
+            </div>-->
             <div class="calendario-btn">
                 <a class="btn" href="#">Ver todos</a>
             </div>
@@ -68,7 +104,7 @@
                 //code...
                 require_once('includes/funciones/db_conexion.php');
 
-                $query = "SELECT nombre_invitado, apellido_invitado, url_imagen FROM invitados ORDER BY nombre_invitado";
+                $query = "SELECT invitado_id, nombre_invitado, apellido_invitado, url_imagen FROM invitados ORDER BY nombre_invitado";
 
                 $result = $conn->query($query);
 
