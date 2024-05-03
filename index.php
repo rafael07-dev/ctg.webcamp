@@ -29,7 +29,14 @@
                 //code...
                 require_once('includes/funciones/db_conexion.php');
 
-                $query = "SELECT evento_id, nombre_evento, fecha_evento, hora_evento, cat_evento, icono, nombre_invitado, apellido_invitado FROM eventos INNER JOIN categoria_evento ON eventos.id_cat_evento = categoria_evento.id_categoria INNER JOIN invitados ON eventos.id_invitado = invitados.invitado_id LIMIT 3";
+                $query = "SELECT evento_id, nombre_evento, fecha_evento, hora_evento, 
+                        cat_evento, icono, nombre_invitado, apellido_invitado 
+                    FROM eventos 
+                    INNER JOIN categoria_evento 
+                    ON eventos.id_cat_evento = categoria_evento.id_categoria 
+                    INNER JOIN invitados ON eventos.id_invitado = invitados.invitado_id 
+                    AND eventos.id_cat_evento = 3 
+                    LIMIT 3";
 
                 $result = $conn->query($query);
 
@@ -56,8 +63,10 @@
                 $calendario[] = $evento;
             }
         ?>
-        <div class="bg-contenido-principal">
-            <img src="img/bg-talleres.jpg" alt="imgagen Talleres">
+        <div class="contenedor-video">
+            <video autoplay loop muted>
+                <source src="<?php echo 'video/video.mp4'; ?>" type="video/mp4">
+            </video>
         </div>
         <div class="calendario contenedor">
             <h1>programa del evento</h1>
@@ -91,7 +100,7 @@
                 <p><i class="fa-solid fa-user"></i>Deiner Rafael</p>
             </div>-->
             <div class="calendario-btn">
-                <a class="btn" href="#">Ver todos</a>
+                <a class="btn" href="calendario.php">Ver todos</a>
             </div>
         </div>
     </section>

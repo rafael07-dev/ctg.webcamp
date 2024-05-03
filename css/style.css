@@ -410,10 +410,17 @@ nav a:hover {
 
 .contenido-talleres {
     position: relative;
+    width: 100%;
 }
 
-.bg-contenido-principal img {
+.contenedor-video{
+    width: 100%;
     display: none;
+}
+
+.contenedor-video video{
+    width: 100%;
+    height: 100%;
 }
 
 .calendario {
@@ -502,15 +509,15 @@ nav a:hover {
 }
 
 @media (min-width: 768px) {
-    .bg-contenido-principal img {
+    .contenedor-video {
         display: block;
     }
 
     .calendario {
         position: absolute;
-        top: 10px;
+        top: 20px;
         left: 30px;
-        backdrop-filter: blur(5px);
+        backdrop-filter: blur(15px);
     }
 
     .opciones-calendario {
