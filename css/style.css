@@ -440,7 +440,7 @@ nav a:hover {
 }
 
 .calendario h1 {
-    font-size: 14px;
+    font-size: 18px;
     text-align: center;
     text-transform: uppercase;
     position: relative;
@@ -458,12 +458,6 @@ nav a:hover {
     height: 20px;
 }
 
-/*
-.calendario img{
-    width: 50px;
-    height: 15px;
-}*/
-
 .calendario-btn {
     display: flex;
     justify-content: flex-end;
@@ -478,12 +472,14 @@ nav a:hover {
     padding: 20px 0;
 }
 
-.opciones-calendario p {
+.opciones-calendario a {
+    text-decoration: none;
+    color: #f34918;
     font-size: 13px;
     font-weight: bold;
 }
 
-.opciones-calendario p i {
+.opciones-calendario a i {
     color: #f34918;
     margin-right: 5px;
 }
@@ -506,6 +502,14 @@ nav a:hover {
 .evento p i {
     color: #f34918;
     margin-right: 5px;
+}
+
+.wrapper-eventos.ocultar{
+    display: none;
+}
+
+.ocultar{
+    display: block;
 }
 
 @media (min-width: 768px) {
