@@ -85,13 +85,14 @@
 
             <?php
                 do {
+                    $eventos = array();
                     $result = $conn->store_result();
                     $row = $result->fetch_all(MYSQLI_ASSOC); ?>
                     
                     <?php $i = 0; ?>
                     <?php foreach ($row as $evento) { ?>
                         <?php if ($i % 2 == 0) : ?>
-                            <div id="<?php echo strtolower($evento['cat_evento']) ?>" class="wrapper-eventos ocultar ">
+                            <div id="<?php echo strtolower($evento['cat_evento']) ?>" class="wrapper-eventos ocultar">
                         <?php endif ?>
                                 <div class="evento">
                                     <h2><i class="<?php echo $evento['icono'] ?>"></i><?php echo $evento['nombre_evento'] ?></h2>

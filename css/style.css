@@ -504,12 +504,18 @@ nav a:hover {
     margin-right: 5px;
 }
 
-.wrapper-eventos.ocultar{
-    display: none;
+.wrapper-eventos{
+    transition: all 0.5s ease-in-out;
 }
 
-.ocultar{
+.wrapper-eventos.ocultar{
+    display: none;
+    opacity: 0;
+}
+
+.wrapper-eventos.mostrar{
     display: block;
+    opacity: 1;
 }
 
 @media (min-width: 768px) {

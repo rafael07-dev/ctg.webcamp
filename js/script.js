@@ -16,21 +16,32 @@ enlaces.forEach(enlace => {
         e.preventDefault();
 
         const categoria = enlace.getAttribute('href').substring(1);
+        console.log(categoria);
 
         const eventos = document.querySelectorAll('.wrapper-eventos');
     
         eventos.forEach(evento => {
             if (evento.id == categoria) {
-                evento.classList.remove('ocultar');
+                evento.classList.add('mostrar');
             }else{
-                evento.classList.add('ocultar');
+                evento.classList.remove('mostrar');
             }
         })
     })
     
-})
+});
 
-//removeClass();
+hideFirstElement();
+
+function hideFirstElement() {
+    const eventos = document.querySelectorAll('.wrapper-eventos');
+
+    for (let index = 0; index < eventos.length; index++) {
+        const element = eventos[index];
+        element.classList.add('mostrar');
+        break;
+    }
+}
 
 window.addEventListener('scroll', animationScroll);
 
@@ -60,10 +71,4 @@ function animationScroll() {
     showIfVisible(numero);
     showIfVisible(cardTestimonial);
     showIfVisible(calendar);
-}
-
-function removeClass() {
-    if (talleres.classList.contains('ocultar')) {
-        talleres.classList.remove('ocultar');
-    }
 }
