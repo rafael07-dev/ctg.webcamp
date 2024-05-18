@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CTGWEBCAMP</title>
-    <link rel="stylesheet" href="css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="public/css/all.min.css">
+    <link rel="stylesheet" href="public/css/style.css">
 </head>
 
 <body>
 
-    <?php include 'includes/templates/header.php'; ?>
-    <?php include 'includes/templates/barra.php'; ?>
+    <?php include 'templates/header.php'; ?>
+    <?php include 'templates/barra.php'; ?>
 
     <section class="contenido-principal contenedor">
         <h1>la mejor conferencia de diseño web en español</h1>
@@ -25,7 +25,7 @@
     <section class="contenido-talleres">
         <div class="contenedor-video">
             <video autoplay loop muted>
-                <source src="<?php echo 'video/video.mp4'; ?>" type="video/mp4">
+                <source src="<?php echo 'public/video/video.mp4'; ?>" type="video/mp4">
             </video>
         </div>
         <div class="calendario contenedor">
@@ -300,7 +300,7 @@
         </div>
     </div>
 
-    <?php include 'includes/templates/footer.php'; ?>
+    <?php include 'templates/footer.php'; ?>
 </body>
 
 </html>

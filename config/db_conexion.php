@@ -1,9 +1,13 @@
-<?php 
-    $conn = new mysqli('localhost', 'root', '', 'ctgwebcamp');
+<?php
 
-    if ($conn -> connect_error) {
-        throw new RuntimeException("Error al intentar conectar a la base de datos", 
-            $conn->connect_error);
+    class Connetion{
+        
+        public static function connet() {
+            $conn = new mysqli("localhost", "root", "", "ctgwebcamp");
+
+            return $conn;
+        }
     }
+    
 
 ?>

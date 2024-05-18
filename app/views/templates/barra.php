@@ -1,7 +1,7 @@
 <div class="barra">
     <div class="contenedor-barra">
         <div class="logo">
-            <a href="index.php"><img  src="img/logo.svg" alt="logo ctgwebcamp"></a>
+            <a href="index.php"><img  src="public/img/logo.svg" alt="logo ctgwebcamp"></a>
             
         </div>
         <nav class="barra-navegacion">
