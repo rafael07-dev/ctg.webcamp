@@ -14,9 +14,9 @@
         
         public function get_invitados(){
 
-			$sql = "SELECT * FROM invitados";
+			$sql = "SELECT invitado_id, nombre_invitado, apellido_invitado, url_imagen FROM invitados";
 			$result = $this->db->query($sql);
-			while($row = $result->fetch_assoc())
+			while($row = $result->fetch_all(MYSQLI_ASSOC))
 			{
 				$this->invitado = $row;
 			}

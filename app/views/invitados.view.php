@@ -18,21 +18,13 @@
 
         <div class="contenedor">
                 <div class="contenedor-invitados">
-
-                    <?php
-                        require_once("./app/models/InvitadoModel.php");
-                        $inv = new InvitadoModel();
-
-                        $result = $inv->get_invitados();
-                        var_dump($result);
-                    ?>
                     <ul>
-                        <?php foreach($result as $invitado): ?>
+                        <?php foreach($invitados as $invitado): ?>
                             <li class="invitado">
                                 <img src="public/img/<?php echo $invitado['url_imagen'] ?>" alt="<?php echo $invitado['nombre_invitado'] ?>">
                                 <p class="texto-invitado"><?php echo $invitado['nombre_invitado'] . " " . $invitado['apellido_invitado'] ?></p>
                             </li>
-                        <?php endforeach;?>
+                        <?php endforeach?>
                     </ul>
                 </div>
         </div>
