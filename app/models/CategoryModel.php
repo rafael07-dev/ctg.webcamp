@@ -1,4 +1,7 @@
-<?php 
+<?php
+
+    require("./config/db_conexion.php");
+
     class CategoryModel{
 
         private $db;
@@ -11,7 +14,7 @@
         
         public function get_categorys(){
 
-			$sql = "SELECT * FROM categoria";
+			$sql = "SELECT * FROM categoria_evento";
 			$result = $this->db->query($sql);
 			while($row = $result->fetch_assoc())
 			{
