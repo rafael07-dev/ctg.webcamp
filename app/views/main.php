@@ -30,130 +30,54 @@
         </div>
         <div class="calendario contenedor">
             <h1>programa del evento</h1>
-            <?php
-            try {
-                require_once('includes/funciones/db_conexion.php');
 
-                $query = "SELECT * FROM categoria_evento";
-
-                $result_cat = $conn->query($query);
-            } catch (\Exception $e) {
-                echo $e->getMessage();
-            }
-            ?>
 
             <div class="opciones-calendario">
-                <?php while ($cat = $result_cat->fetch_array(MYSQLI_ASSOC)) { ?>
-                    <?php $categoria = $cat['cat_evento'] ?>
-                    <a href="#<?php echo strtolower($categoria) ?>" class="enlace-categoria"><i class="<?php echo $cat['icono'] ?>"></i><?php echo $cat['cat_evento'] ?></a>
-                <?php } ?>
+                
+                    <a href="#" class="enlace-categoria"><i class=""></i></a>
+           
             </div>
             <hr>
 
-            <?php
+            <div class="evento">
+                <h2><i class=""></i></h2>
+                <p><i class="fa-regular fa-clock"></i></p>
+                <p><i class="fa-solid fa-calendar-days"></i></p>
+                <p><i class="fa-solid fa-user"></i></p>
+            </div>
+            <hr>
 
-            try {
-                require_once('includes/funciones/db_conexion.php');
 
-                $query = "SELECT evento_id, nombre_evento, fecha_evento, hora_evento,
-                    cat_evento, icono, nombre_invitado, apellido_invitado FROM eventos 
-                    INNER JOIN categoria_evento 
-                    ON eventos.id_cat_evento = categoria_evento.id_categoria 
-                    INNER JOIN invitados ON eventos.id_invitado = invitados.invitado_id 
-                    AND eventos.id_cat_evento = 3 LIMIT 2;
-                    
-                    SELECT evento_id, nombre_evento, fecha_evento, hora_evento,
-                    cat_evento, icono, nombre_invitado, apellido_invitado FROM eventos 
-                    INNER JOIN categoria_evento 
-                    ON eventos.id_cat_evento = categoria_evento.id_categoria 
-                    INNER JOIN invitados ON eventos.id_invitado = invitados.invitado_id 
-                    AND eventos.id_cat_evento = 2 LIMIT 2;
+            <a class="btn" href="calendario.php">Ver todos</a>
+        </div>
 
-                    SELECT evento_id, nombre_evento, fecha_evento, hora_evento,
-                    cat_evento, icono, nombre_invitado, apellido_invitado FROM eventos 
-                    INNER JOIN categoria_evento 
-                    ON eventos.id_cat_evento = categoria_evento.id_categoria 
-                    INNER JOIN invitados ON eventos.id_invitado = invitados.invitado_id 
-                    AND eventos.id_cat_evento = 1 LIMIT 2; ";
-
-            } catch (\Exception $e) {
-                echo $e->getMessage();
-            }
-
-            ?>
-            <?php $conn->multi_query($query)?>
-
-            <?php
-                do {
-                    $eventos = array();
-                    $result = $conn->store_result();
-                    $row = $result->fetch_all(MYSQLI_ASSOC); ?>
-                    
-                    <?php $i = 0; ?>
-                    <?php foreach ($row as $evento) { ?>
-                        <?php if ($i % 2 == 0) : ?>
-                            <div id="<?php echo strtolower($evento['cat_evento']) ?>" class="wrapper-eventos ocultar">
-                        <?php endif ?>
-                                <div class="evento">
-                                    <h2><i class="<?php echo $evento['icono'] ?>"></i><?php echo $evento['nombre_evento'] ?></h2>
-                                    <p><i class="fa-regular fa-clock"></i><?php echo $evento['hora_evento'] ?></p>
-                                    <p><i class="fa-solid fa-calendar-days"></i><?php echo $evento['fecha_evento'] ?></p>
-                                    <p><i class="fa-solid fa-user"></i><?php echo $evento['nombre_invitado'] . ' ' . $evento['apellido_invitado'] ?></p>
-                                </div>
-                                <hr>
-        
-                        <?php if ($i % 2 == 1): ?>
-                            <a class="btn" href="calendario.php">Ver todos</a>
-                            </div>
-                            
-                        <?php endif ?>
-                        <?php $i++; ?>
-                    <?php } ?>
-                    <?php $result->free(); ?>
-            <?php } while ($conn->next_result());?>
-            
         </div>
     </section>
+
+    <?php 
+        require_once("./app/models/CategoryModel.php");
+
+        $categorys = new CategoryModel();
+
+        $categorys->get_categorys();
+
+    ?>
+
+    <pre>
+        <?php var_dump($categorys);?>
+    </pre>
 
     <section class="invitados contenedor">
         <h1>Nuestros invitados</h1>
 
-        <?php
-        try {
-            require_once('includes/funciones/db_conexion.php');
-
-            $query = "SELECT invitado_id, nombre_invitado, apellido_invitado, url_imagen 
-                FROM invitados ORDER BY nombre_invitado";
-
-            $result = $conn->query($query);
-        } catch (\Exception $e) {
-            echo $e->getMessage();
-        }
-        ?>
-        <?php
-        $invitados_db = array();
-
-        while ($invitados = $result->fetch_assoc()) {
-
-            $invitado = array(
-                'nombre' => $invitados['nombre_invitado'],
-                'apellido' => $invitados['apellido_invitado'],
-                'imagen' => $invitados['url_imagen']
-            );
-
-            $invitados_db[] = $invitado;
-        }
-        ?>
-
         <div class="contenedor-invitados">
             <ul>
-                <?php
-                foreach ($invitados_db as $key => $invitado) { ?>
+                
                     <li class="invitado">
-                        <img src="img/<?php echo $invitado['imagen'] ?>" alt="<?php echo $invitado['nombre'] ?>">
-                        <p class="texto-invitado"><?php echo $invitado['nombre'] . " " . $invitado['apellido'] ?></p>
+                        <img src="img/" alt="">
+                        <p class="texto-invitado"></p>
                     </li>
-                <?php } ?>
+                
             </ul>
         </div>
     </section>
