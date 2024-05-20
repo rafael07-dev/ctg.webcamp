@@ -1,14 +1,8 @@
 <?php
-    require(__DIR__ . "/config/router.php");
-    require(__DIR__."/app/controllers/HomeControlller.php");
 
-    $router = new Router();
+    require_once(__DIR__."/app/core/app.php");
 
-    $router->add('/', 'HomeController@index'); 
+    $app = new App();
+    $app->run();
 
-    $router->add('/home', 'HomeController@showHome');
-
-    $router->add('/about', 'HomeController@showAbout');
-
-    $router->run();
 ?>
