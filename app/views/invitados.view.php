@@ -10,8 +10,8 @@
 </head>
 
 <body>
-    <?php include './app/views/templates/header.php';?>
-    <?php include './app/views/templates/barra.php';?>
+    <?php include 'templates/header.php';?>
+    <?php include 'templates/barra.php';?>
 
     <main class="section contenedor">
         <h2>Invitados</h2>
@@ -30,7 +30,7 @@
         </div>
     </main>
 
-    <?php include './app/views/templates/footer.php'?>
+    <?php include 'templates/footer.php'?>
 </body>
 
 </html>
