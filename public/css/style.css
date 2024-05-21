@@ -348,23 +348,6 @@ nav a:hover {
 
 @media (min-width: 1024px) {}
 
-/*
-.barra-navegacion .side-bar{
-    display: block;
-    position: absolute;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    font-size: 10px;
-    backdrop-filter: blur(5px);
-    height: 200px;
-    width: 100%;
-    top: 70px;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    z-index: 1;
-}*/
 
 /*Contenido principal*/
 .contenido-principal {
@@ -394,6 +377,21 @@ nav a:hover {
     height: 20px;
 }
 
+.contenido-principal p {
+    font-size: 11px;
+}
+
+@media (min-width: 768px) {
+    .contenido-principal h1 {
+        text-align: center;
+        font-size: 20px;
+    }
+
+    .contenido-principal p {
+        font-size: 14px;
+    }
+}
+
 .contenido-img {
     display: flex;
     justify-content: center;
@@ -404,16 +402,19 @@ nav a:hover {
     height: 15px;
 }
 
-.contenido-principal p {
-    font-size: 11px;
-}
-
 .contenido-talleres {
     position: relative;
+    width: 100%;
 }
 
-.bg-contenido-principal img {
+.contenedor-video{
+    width: 100%;
     display: none;
+}
+
+.contenedor-video video{
+    width: 100%;
+    height: 100%;
 }
 
 .calendario {
@@ -422,7 +423,7 @@ nav a:hover {
     background-color: rgba(255, 255, 255, .7);
     padding: 20px 10px;
     height: auto;
-    max-width: 300px;
+    width: 380px;
     border-radius: 10px;
     transform: scale(0);
     transition: .2s ease;
@@ -433,16 +434,23 @@ nav a:hover {
 }
 
 .calendario h1 {
-    font-size: 14px;
+    font-size: 18px;
     text-align: center;
     text-transform: uppercase;
+    position: relative;
 }
 
-/*
-.calendario img{
-    width: 50px;
-    height: 15px;
-}*/
+.calendario h1::after {
+    content: '';
+    background-image: url('../img/separador.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 90%;
+    left: 45%;
+    width: 44px;
+    height: 20px;
+}
 
 .calendario-btn {
     display: flex;
@@ -458,12 +466,14 @@ nav a:hover {
     padding: 20px 0;
 }
 
-.opciones-calendario p {
+.opciones-calendario a {
+    text-decoration: none;
+    color: #f34918;
     font-size: 13px;
     font-weight: bold;
 }
 
-.opciones-calendario p i {
+.opciones-calendario a i {
     color: #f34918;
     margin-right: 5px;
 }
@@ -474,6 +484,7 @@ nav a:hover {
 }
 
 .evento h2 {
+    font-size: 14px;
     color: #f34918;
 }
 
@@ -487,16 +498,30 @@ nav a:hover {
     margin-right: 5px;
 }
 
+.wrapper-eventos{
+    transition: all 0.5s ease-in-out;
+}
+
+.wrapper-eventos.ocultar{
+    display: none;
+    opacity: 0;
+}
+
+.wrapper-eventos.mostrar{
+    display: block;
+    opacity: 1;
+}
+
 @media (min-width: 768px) {
-    .bg-contenido-principal img {
+    .contenedor-video {
         display: block;
     }
 
     .calendario {
         position: absolute;
-        top: 10px;
+        top: 20px;
         left: 30px;
-        backdrop-filter: blur(5px);
+        backdrop-filter: blur(15px);
     }
 
     .opciones-calendario {
@@ -688,7 +713,7 @@ nav a:hover {
     background-repeat: no-repeat;
     position: absolute;
     top: 90%;
-    left: 47%;
+    left: 48%;
     width: 44px;
     height: 20px;
 }
@@ -697,7 +722,7 @@ nav a:hover {
     display: grid;
     justify-content: center;
     gap: 20px;
-    padding: 20px 20px;
+    padding: 40px 20px;
     overflow-x: hidden;
 }
 

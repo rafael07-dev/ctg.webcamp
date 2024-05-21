@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CTGWEBCAMP</title>
-    <link rel="stylesheet" href="css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="public/css/all.min.css">
+    <link rel="stylesheet" href="public/css/style.css">
 </head>
 
 <body>
-    <?php include 'includes/templates/header.php';?>
-    <?php include 'includes/templates/barra.php';?>
+    <?php include 'templates/header.php';?>
+    <?php include 'templates/barra.php';?>
 
     <main class="section contenedor">
         <form class="form" action="#">
@@ -394,10 +394,8 @@
         </form>
     </main>
 
-    <?php include 'includes/templates/footer.php'?>
-
-    <script src="js/script.js"></script>
-    <script src="js/registro.js"></script>
+    <?php include 'templates/footer.php'?>
+    <script src="public/js/registro.js"></script>
 </body>
 
 </html>

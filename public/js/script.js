@@ -6,17 +6,44 @@ const cardTestimonial = document.querySelectorAll('.card-testimonial');
 const numero = document.querySelectorAll('.numero');
 const calendar = document.querySelectorAll('.calendario');
 const windowHeight = window.innerHeight / 5 * 4;
-/*
-console.log("Calendar:", calendar);
-console.log("Cards:", cards);
-console.log("Testimonial:", cardTestimonial);
-console.log("Numero:", numero);*/
+
+//opciones calendario dinamico index
+const enlaces = document.querySelectorAll('.enlace-categoria');
+
+enlaces.forEach(enlace => {
+
+    enlace.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        const categoria = enlace.getAttribute('href').substring(1);
+        console.log(categoria);
+
+        const eventos = document.querySelectorAll('.wrapper-eventos');
+    
+        eventos.forEach(evento => {
+            if (evento.id == categoria) {
+                evento.classList.add('mostrar');
+            }else{
+                evento.classList.remove('mostrar');
+            }
+        })
+    })
+    
+});
+
+hideFirstElement();
+
+function hideFirstElement() {
+    const eventos = document.querySelectorAll('.wrapper-eventos');
+
+    for (let index = 0; index < eventos.length; index++) {
+        const element = eventos[index];
+        element.classList.add('mostrar');
+        break;
+    }
+}
 
 window.addEventListener('scroll', animationScroll);
-
-menuBar.addEventListener('click', () => {
-    dropdownMenu.classList.toggle('open');
-});
 
 btnClose.addEventListener('click', () => {
     if (dropdownMenu.classList.contains('open')) {
@@ -44,4 +71,4 @@ function animationScroll() {
     showIfVisible(numero);
     showIfVisible(cardTestimonial);
     showIfVisible(calendar);
-} 
+}
