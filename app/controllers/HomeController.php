@@ -4,7 +4,7 @@ class HomeController
 {
     public function index()
     {
-        require("./app/views/main.php");
+        require("./app/views/main.view.php");
     }
 }
 ?>
