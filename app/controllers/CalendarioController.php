@@ -1,6 +1,6 @@
 <?php
     require_once("./app/models/CategoryModel.php");
-    class CategoriaController
+    class CalendarioController
     {
         public function index()
         {
