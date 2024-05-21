@@ -1,7 +1,4 @@
 <?php
-
-    require("./config/db_conexion.php");
-
     class CategoryModel{
 
         private $db;
