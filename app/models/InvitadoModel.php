@@ -1,6 +1,4 @@
 <?php
-
-    include("./config/db_conexion.php");
     
     class InvitadoModel{
 
