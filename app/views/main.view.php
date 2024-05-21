@@ -56,11 +56,12 @@
 
         <div class="contenedor-invitados">
             <ul>
-                
+                <?php foreach($invitados as $invitado): ?>
                     <li class="invitado">
-                        <img src="img/" alt="">
-                        <p class="texto-invitado"></p>
+                        <img src="public/img/<?php echo $invitado['url_imagen'] ?>" alt="<?php echo $invitado['nombre_invitado'] ?>">
+                        <p class="texto-invitado"><?php echo $invitado['nombre_invitado'] . " " . $invitado['apellido_invitado'] ?></p>
                     </li>
+                <?php endforeach?>
             </ul>
         </div>
     </section>
