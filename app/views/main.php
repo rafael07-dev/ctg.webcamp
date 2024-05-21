@@ -11,8 +11,8 @@
 
 <body>
 
-    <?php include 'templates/header.php'; ?>
-    <?php include 'templates/barra.php'; ?>
+<?php include './app/views/templates/header.php'?>
+<?php include './app/views/templates/barra.php'?>
 
     <section class="contenido-principal contenedor">
         <h1>la mejor conferencia de diseño web en español</h1>
@@ -31,11 +31,8 @@
         <div class="calendario contenedor">
             <h1>programa del evento</h1>
 
-
             <div class="opciones-calendario">
-                
                     <a href="#" class="enlace-categoria"><i class=""></i></a>
-           
             </div>
             <hr>
 
@@ -54,19 +51,6 @@
         </div>
     </section>
 
-    <?php 
-        require_once("./app/models/CategoryModel.php");
-
-        $categorys = new CategoryModel();
-
-        $categorys->get_categorys();
-
-    ?>
-
-    <pre>
-        <?php var_dump($categorys);?>
-    </pre>
-
     <section class="invitados contenedor">
         <h1>Nuestros invitados</h1>
 
@@ -77,7 +61,6 @@
                         <img src="img/" alt="">
                         <p class="texto-invitado"></p>
                     </li>
-                
             </ul>
         </div>
     </section>
@@ -224,7 +207,7 @@
         </div>
     </div>
 
-    <?php include 'templates/footer.php'; ?>
+    <?php include './app/views/templates/footer.php'?>
 </body>
 
 </html>
