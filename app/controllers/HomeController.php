@@ -8,6 +8,10 @@
         {
             $model = new InvitadoModel();
             $invitados = $model->get_invitados();
+
+            $modelCategory = new CategoryModel();
+            $arrayCategory = $modelCategory->getCategoryMulty();
+
             require("./app/views/main.view.php");
         }
     }

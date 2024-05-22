@@ -8,8 +8,50 @@
             $this->db = Connetion::connet();
             $this->category = array();
         }
+
+        public function getCategoryMulty(): array{
+
+            try {
+
+                $query = "SELECT evento_id, nombre_evento, fecha_evento, hora_evento,
+                    cat_evento, icono, nombre_invitado, apellido_invitado FROM eventos 
+                    INNER JOIN categoria_evento 
+                    ON eventos.id_cat_evento = categoria_evento.id_categoria 
+                    INNER JOIN invitados ON eventos.id_invitado = invitados.invitado_id 
+                    AND eventos.id_cat_evento = 3 LIMIT 2;
+                    
+                    SELECT evento_id, nombre_evento, fecha_evento, hora_evento,
+                    cat_evento, icono, nombre_invitado, apellido_invitado FROM eventos 
+                    INNER JOIN categoria_evento 
+                    ON eventos.id_cat_evento = categoria_evento.id_categoria 
+                    INNER JOIN invitados ON eventos.id_invitado = invitados.invitado_id 
+                    AND eventos.id_cat_evento = 2 LIMIT 2;
+
+                    SELECT evento_id, nombre_evento, fecha_evento, hora_evento,
+                    cat_evento, icono, nombre_invitado, apellido_invitado FROM eventos 
+                    INNER JOIN categoria_evento 
+                    ON eventos.id_cat_evento = categoria_evento.id_categoria 
+                    INNER JOIN invitados ON eventos.id_invitado = invitados.invitado_id 
+                    AND eventos.id_cat_evento = 1 LIMIT 2; ";
+
+                    if ($this->db->multi_query($query)) {
+                        do {
+                            $result = $this->db->store_result();
+                            $this->category[] = $result->fetch_all(MYSQLI_ASSOC);
+    
+                        } while ($this->db->next_result());   
+                    }
+
+                    $this->db->close();
+
+            } catch (\Exception $e) {
+                echo $e->getMessage();
+            }
+
+            return $this->category;
+        }
         
-        public function get_categorys(){
+        public function get_categorys(): array{
             try {
 
                 $sql = "SELECT evento_id, nombre_evento, fecha_evento, hora_evento, cat_evento, icono, nombre_invitado, apellido_invitado FROM eventos INNER JOIN categoria_evento ON eventos.id_cat_evento = categoria_evento.id_categoria INNER JOIN invitados ON eventos.id_invitado = invitados.invitado_id ORDER BY evento_id";
