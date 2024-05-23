@@ -6,12 +6,13 @@
     {
         public function index()
         {
-            $model = new InvitadoModel();
-            $invitados = $model->get_invitados();
-
+            $modelInvitados = new InvitadoModel();
             $modelCategory = new CategoryModel();
-            $arrayCategory = $modelCategory->getCategoryMulty();
 
+            $categoria = $modelCategory->get_category();
+            $arrayCategory = $modelCategory->getCategoryMulty();
+            $invitados = $modelInvitados->get_invitados();
+            
             require("./app/views/main.view.php");
         }
     }

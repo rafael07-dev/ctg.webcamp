@@ -3,10 +3,12 @@
 
         private $db;
         private $category;
+        private $categoryMulti;
 
         public function __construct() {
             $this->db = Connetion::connet();
             $this->category = array();
+            $this->categoryMulti = array();
         }
 
         public function getCategoryMulty(): array{
@@ -34,20 +36,37 @@
                     INNER JOIN invitados ON eventos.id_invitado = invitados.invitado_id 
                     AND eventos.id_cat_evento = 1 LIMIT 2; ";
 
-                    if ($this->db->multi_query($query)) {
-                        do {
-                            $result = $this->db->store_result();
-                            $this->category[] = $result->fetch_all(MYSQLI_ASSOC);
-    
-                        } while ($this->db->next_result());   
-                    }
+                if ($this->db->multi_query($query)) {
+                    do {
+                        $result = $this->db->store_result();
+                        $row = $result->fetch_all(MYSQLI_ASSOC);
 
-                    $this->db->close();
+                        $this->categoryMulti[] = $row;
+
+                    } while ($this->db->next_result());   
+                }
+                $this->db->close();
 
             } catch (\Exception $e) {
                 echo $e->getMessage();
             }
 
+            return $this->categoryMulti;
+        }
+
+        public function get_category(): array{
+            try {
+
+                $sql = "SELECT * FROM categoria_evento";
+			    $result = $this->db->query($sql);
+                
+                while ($cat = $result->fetch_array(MYSQLI_ASSOC)) {
+                    $this->category[] = $cat;
+                }
+
+            } catch (\Exception $e) {
+                echo $e->getMessage();
+            }
             return $this->category;
         }
         

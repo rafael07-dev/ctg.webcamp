@@ -20,6 +20,7 @@
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime error, nostrum aut impedit harum voluptas
             eligendi eius quidem corporis suscipit neque adipisci soluta, velit ipsum, accusamus nesciunt minus
             voluptatem sapiente!</p>
+
     </section>
 
     <section class="contenido-talleres">
@@ -32,20 +33,34 @@
             <h1>programa del evento</h1>
 
             <div class="opciones-calendario">
-                    <a href="#" class="enlace-categoria"><i class=""></i></a>
+                <?php foreach ($categoria as $cat) : ?>
+                    <?php $categoria = $cat['cat_evento'] ?>
+                    <a href="#<?php echo strtolower($categoria) ?>" class="enlace-categoria"><i class="<?php echo $cat['icono'] ?>"></i><?php echo $cat['cat_evento'] ?></a>
+                <?php endforeach ?>
             </div>
             <hr>
+            <?php $i = 0; ?>
+            <?php foreach ($arrayCategory as $listArray): ?>
+                <?php foreach ($listArray as $category): ?>
+                    <?php if ($i % 2 == 0) : ?>
+                        <div id="<?php echo strtolower($category['cat_evento']) ?>" class="wrapper-eventos ocultar">
+                    <?php endif ?>
 
-            <div class="evento">
-                <h2><i class=""></i></h2>
-                <p><i class="fa-regular fa-clock"></i></p>
-                <p><i class="fa-solid fa-calendar-days"></i></p>
-                <p><i class="fa-solid fa-user"></i></p>
-            </div>
-            <hr>
+                    <div class="evento">
+                        <h2><i class="<?php echo $category['icono'] ?>"></i><?php echo $category['nombre_evento'] ?></h2>
+                        <p><i class="fa-regular fa-clock"></i><?php echo $category['hora_evento'] ?></p>
+                        <p><i class="fa-solid fa-calendar-days"></i><?php echo $category['fecha_evento'] ?></p>
+                        <p><i class="fa-solid fa-user"></i><?php echo $category['nombre_invitado'] . " " . $category['apellido_invitado'] ?></p>
+                    </div>
+                    <hr>
 
-
-            <a class="btn" href="calendario.php">Ver todos</a>
+                    <?php if ($i % 2 == 1): ?>
+                        <a class="btn" href="/ctg.webcamp/calendario">Ver todos</a>
+                        </div>
+                    <?php endif ?>
+                    <?php $i++; ?>
+                <?php endforeach ?>
+            <?php endforeach ?>
         </div>
 
         </div>
