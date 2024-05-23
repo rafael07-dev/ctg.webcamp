@@ -7,7 +7,7 @@
         <nav class="barra-navegacion">
             <ul>
                 <li><a href="#">conferencia</a></li>
-                <li><a href="/ctg.webcamp/categoria">calendario</a></li>
+                <li><a href="/ctg.webcamp/calendario">calendario</a></li>
                 <li><a href="/ctg.webcamp/invitados">invitados</a></li>
                 <li><a href="/ctg.webcamp/reservaciones">reservaciones</a></li>
             </ul>
